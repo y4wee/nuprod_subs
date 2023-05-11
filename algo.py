@@ -10,9 +10,8 @@ start_date = datetime(2022, 1, 1)
 end_date = datetime(2023, 1, 1)
 next_invoice_date = datetime(2022, 1, 1)
 
+
 def get_next_invoice_date(start, end, next, periods, type):
-
-
 
     new_date = relativedelta(next, start)
     last_days = (next - start).days
@@ -22,8 +21,11 @@ def get_next_invoice_date(start, end, next, periods, type):
     elif type == "week":
         print(f"periode n°: {int(last_days / 7) + 1}/{periods}")
     elif type == "month":
-        print(f"periode n°: {new_date.years * 12 + new_date.months + 1}/{periods}")
+        print(
+            f"periode n°: {new_date.years * 12 + new_date.months + 1}/{periods}")
     elif type == "year":
         print(f"periode n°: {new_date.years + 1}/{periods}")
-    
-get_next_invoice_date(start_date, end_date, next_invoice_date, subscription_model["periods"], subscription_model["period_type"])
+
+
+get_next_invoice_date(start_date, end_date, next_invoice_date,
+                      subscription_model["periods"], subscription_model["period_type"])
